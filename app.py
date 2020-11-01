@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-
 from flask import Flask
-from flask import request, escape, url_for
+from flask import request, url_for
 from flask import render_template
 
 app = Flask('app')
 
-name = 'Grey Li'
+name = 'BeiChuan Zhang'
 movies = [
     {'title': 'My Neighbor Totoro', 'year': '1988'},
     {'title': 'Dead Poets Society', 'year': '1989'},
@@ -24,12 +23,7 @@ movies = [
 
 @app.route("/")
 def index():
-    return render_template('index.html',name=name,movies=movies)
-
-
-@app.route("/user/<name>")
-def get_name(name):
-    return "user:%s" % escape(name)
+    return render_template('index.html', name=name, movies=movies)
 
 
 @app.route("/test")
