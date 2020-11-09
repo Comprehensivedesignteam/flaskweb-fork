@@ -23,6 +23,13 @@
     <nav>
         <ul>
             <li><a href="{{ url_for('index') }}">Home</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('setting') }}">Settings</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            {# 为什么这里要用log_in? #}
+            <li><a href="{{ url_for('log_in') }}">Login</a></li>
+            {% endif %}
         </ul>
     </nav>
     {% block content %}{% endblock %}
